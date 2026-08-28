@@ -1,0 +1,306 @@
+/* =========================================================
+   AQUIM · PÁGINA DE ACCESO
+   Estilos específicos para la autenticación, el registro
+   y la alternancia entre ambos formularios.
+   ========================================================= */
+
+
+/* =========================================================
+   ESTRUCTURA DEL ACCESO
+   ========================================================= */
+
+/* Centrado de la página
+   --------------------------------------------------------- */
+
+.frutiger-theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .auth-page {
+  position: relative;
+  min-height: 100dvh;
+  justify-content: flex-start;
+}
+
+body .auth-page > .aero-panel {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+body .auth-page > .aquim-footer {
+  margin: 0 auto;
+}
+
+/* Botón para volver al inicio
+   --------------------------------------------------------- */
+
+.auth-back-button {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: #245d0b;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 8px 18px rgba(42, 112, 25, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.auth-back-button:hover {
+  color: #174a05;
+  background: rgba(255, 255, 255, 0.82);
+  transform: translateX(-2px);
+}
+
+.auth-back-button:focus-visible {
+  outline: 2px solid #58a315;
+  outline-offset: 3px;
+}
+
+.auth-back-button svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 600px) {
+  .auth-back-button {
+    top: 12px;
+    left: 12px;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Panel de autenticación
+   --------------------------------------------------------- */
+
+.aero-panel {
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  z-index: 1;
+  text-align: center;
+}
+
+.aero-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 48%;
+  border-bottom-left-radius: 50% 22%;
+  border-bottom-right-radius: 50% 22%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.05));
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   LOGOTIPO Y TÍTULO
+   ========================================================= */
+
+/* Logotipo animado
+   --------------------------------------------------------- */
+
+.logo {
+  top: -210px;
+  z-index: 4;
+  display: grid;
+  justify-items: center;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  animation: logo-float 4.6s ease-in-out infinite alternate;
+}
+
+@keyframes logo-float {
+  from {
+    transform: translateY(-30px);
+  }
+
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+.logo img {
+  width: 80%;
+  height: 80%;
+  font-size: 40px;
+  object-fit: contain;
+  display: block;
+}
+
+h2 {
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  color: #1c5604;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.92);
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   CAMPOS Y ACCIONES DEL FORMULARIO
+   ========================================================= */
+
+/* Campos y opciones secundarias
+   --------------------------------------------------------- */
+
+.aero-input {
+  margin-bottom: 16px;
+}
+
+.extra-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #245d0b;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forgot-link {
+  color: #174a05;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(23, 74, 5, 0.4);
+}
+
+.forgot-link:hover {
+  color: #58a315;
+}
+
+/* Botón principal
+   --------------------------------------------------------- */
+
+.aero-button {
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.aero-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 48%;
+  border-bottom-left-radius: 50% 22%;
+  border-bottom-right-radius: 50% 22%;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ALTERNANCIA ENTRE ACCESO Y REGISTRO
+   ========================================================= */
+
+/* Estructura de los formularios
+   --------------------------------------------------------- */
+
+.toggle-checkbox {
+  display: none;
+}
+
+.auth-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-form {
+  grid-row: 1;
+  grid-column: 1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estados de acceso y registro
+   --------------------------------------------------------- */
+
+/* El acceso se muestra inicialmente y el registro permanece desplazado y oculto. */
+.form-login {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-register {
+  opacity: 0;
+  transform: translateX(50px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Al activar el checkbox, se intercambian la posición y la visibilidad de ambos formularios. */
+.toggle-checkbox:checked~.aero-panel .form-login {
+  opacity: 0;
+  transform: translateX(-50px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.toggle-checkbox:checked~.aero-panel .form-register {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Control para cambiar de formulario
+   --------------------------------------------------------- */
+
+.switch-text {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #2b6810;
+  font-weight: 600;
+}
+
+.switch-label {
+  color: #174a05;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: rgba(23, 74, 5, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.switch-label:hover {
+  color: #58a315;
+}

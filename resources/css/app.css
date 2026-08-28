@@ -1,0 +1,1348 @@
+/* =========================================================
+   AQUIM · PORTADA PÚBLICA
+   Estructura, contenido, animaciones y adaptación responsive
+   de la página de acceso para usuarios no autenticados.
+   ========================================================= */
+
+
+/* =========================================================
+   ESTRUCTURA PRINCIPAL
+   ========================================================= */
+
+/* Lienzo y contenedor
+   --------------------------------------------------------- */
+
+.aquim-home-page {
+  --aquim-page-gap: clamp(22px, 2.6vw, 42px);
+
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100dvh;
+  min-width: 0;
+  min-height: 0;
+  padding: var(--aquim-page-gap);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.aquim-home-shell {
+  width: min(1376px, calc(100vw - (var(--aquim-page-gap) * 2)));
+  height: min(776px, calc(100dvh - (var(--aquim-page-gap) * 2)));
+  min-width: 0;
+  min-height: 0;
+  margin: 0 auto;
+}
+
+/* Tarjeta de portada
+   --------------------------------------------------------- */
+
+.aquim-home-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 46%) minmax(0, 54%);
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.aquim-home-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.3),
+    transparent 25%,
+    transparent 74%,
+    rgba(255, 255, 255, 0.16)
+  );
+  pointer-events: none;
+}
+
+/* =========================================================
+   ZONA VISUAL IZQUIERDA
+   ========================================================= */
+
+/* Panel visual y marco decorativo
+   --------------------------------------------------------- */
+
+.aquim-home-visual {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.52);
+  background:
+    radial-gradient(circle at 23% 16%, rgba(255, 255, 255, 0.88), transparent 22%),
+    radial-gradient(circle at 78% 79%, rgba(111, 222, 255, 0.42), transparent 34%),
+    linear-gradient(145deg, rgba(191, 255, 145, 0.44), rgba(86, 188, 231, 0.30));
+}
+
+.aquim-home-visual::before {
+  content: "";
+  position: absolute;
+  inset: 9% 11%;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 46% 54% 58% 42% / 45% 39% 61% 55%;
+  box-shadow:
+    inset 0 0 52px rgba(255, 255, 255, 0.20),
+    0 0 72px rgba(107, 224, 255, 0.16);
+  animation: aquim-home-orbit 26s ease-in-out infinite alternate;
+}
+
+/* Emblema y halo de luz
+   --------------------------------------------------------- */
+
+.landing-emblem {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  min-width: 190px;
+  padding: 30px 36px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 42px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.64), rgba(201, 250, 180, 0.35));
+  backdrop-filter: blur(11px) saturate(135%);
+  -webkit-backdrop-filter: blur(11px) saturate(135%);
+  box-shadow:
+    0 22px 42px rgba(23, 96, 49, 0.18),
+    inset 0 2px 8px rgba(255, 255, 255, 0.88);
+  animation: emblem-float 4.6s ease-in-out infinite alternate;
+}
+
+.landing-emblem__logo {
+  width: 220px;
+  height: 220px;
+  font-size: 40px;
+  margin-bottom: -20px;
+}
+
+.landing-emblem__logo .logo {
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+}
+
+.landing-emblem__logoText {
+  width: 120%;
+  height: 110%;
+  transform: translateY(-30px);
+}
+
+.landing-emblem__logoText .logo {
+  width: 100%;
+  height: 100%;
+}
+
+.landing-emblem strong {
+  color: #174a05;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.82);
+}
+
+.landing-emblem > span {
+  margin-top: 8px;
+  color: #4a8b29;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+/* Sitúa el emblema sobre la composición visual sin alterar su tamaño interno. */
+.aquim-home-visual .landing-emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 7;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.aquim-home-light {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: min(72%, 390px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 34% 28%,
+    rgba(255, 255, 255, 0.96),
+    rgba(193, 255, 172, 0.50) 30%,
+    rgba(76, 177, 226, 0.19) 64%,
+    transparent 73%
+  );
+  transform: translate(-50%, -50%);
+  filter: blur(2px);
+  animation: aquim-home-light 20s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   CONTENIDO Y ACCIONES
+   ========================================================= */
+
+/* Textos y ventajas
+   --------------------------------------------------------- */
+
+.aquim-home-content {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding:
+    clamp(34px, 4.4vw, 64px)
+    clamp(34px, 4.8vw, 72px)
+    clamp(34px, 4.4vw, 64px)
+    clamp(36px, 4.3vw, 66px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.aquim-home-eyebrow {
+  margin: 0 0 clamp(12px, 1.4vh, 16px);
+  color: #4b8a2a;
+  font-size: clamp(0.68rem, 0.78vw, 0.76rem);
+  font-weight: 900;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.aquim-home-content h1 {
+  width: 100%;
+  max-width: 610px;
+  margin: 0;
+  color: #153f07;
+  font-size: clamp(2.18rem, 4.35vw, 4.45rem);
+  line-height: 0.99;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.78);
+}
+
+.aquim-home-content h1 span {
+  display: block;
+  margin-top: 8px;
+  color: #4e9b1e;
+}
+
+.aquim-home-description {
+  width: 100%;
+  max-width: 560px;
+  margin: clamp(18px, 2.5vh, 25px) 0 0;
+  color: #477034;
+  font-size: clamp(0.84rem, 1.18vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.58;
+}
+
+.aquim-home-benefits {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(6px, 0.65vw, 9px);
+  margin-top: clamp(18px, 2.6vh, 27px);
+}
+
+.aquim-home-benefits span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: clamp(6px, 0.62vw, 8px) clamp(8px, 0.9vw, 12px);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+  color: #34711a;
+  font-size: clamp(0.66rem, 0.76vw, 0.76rem);
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.78);
+}
+
+.aquim-home-benefits span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #bff985, #58a315);
+  box-shadow: 0 1px 3px rgba(39, 112, 9, 0.24);
+}
+
+/* Accesos de inicio de sesión y registro
+   --------------------------------------------------------- */
+
+.aquim-home-actions {
+  margin-top: clamp(25px, 3.7vh, 37px);
+}
+
+/* Botón principal con brillo animado y un icono que responde al pasar el puntero. */
+.aquim-home-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(100%, 390px);
+  min-height: clamp(52px, 6.5vh, 58px);
+  padding: 8px 10px 8px clamp(22px, 2vw, 28px);
+  border-radius: 30px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: clamp(0.86rem, 1.05vw, 1rem);
+  text-decoration: none;
+}
+
+.aquim-home-cta::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 8%;
+  width: 72%;
+  height: 42%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.42);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.aquim-home-cta > span {
+  position: relative;
+  z-index: 2;
+}
+
+.aquim-home-cta__icon {
+  display: grid;
+  place-items: center;
+  width: clamp(36px, 3.3vw, 39px);
+  height: clamp(36px, 3.3vw, 39px);
+  flex: 0 0 clamp(36px, 3.3vw, 39px);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.24);
+  font-size: 1.15rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.aquim-home-cta:hover .aquim-home-cta__icon {
+  background: rgba(255, 255, 255, 0.38);
+  transform: translateX(3px);
+}
+
+.aquim-home-register {
+  margin: 14px 0 0 clamp(10px, 1.2vw, 18px);
+  color: #668d53;
+  font-size: clamp(0.7rem, 0.8vw, 0.8rem);
+  font-weight: 650;
+}
+
+.aquim-home-register a {
+  color: #2d7311;
+  font-weight: 850;
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 115, 17, 0.36);
+  text-underline-offset: 3px;
+}
+
+.aquim-home-register a:hover {
+  color: #194f05;
+}
+
+/* Marca de agua decorativa situada detrás del contenido. */
+.aquim-home-watermark {
+  position: absolute;
+  right: -26px;
+  bottom: -45px;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.22);
+  font-size: clamp(7rem, 15vw, 13rem);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -0.09em;
+  pointer-events: none;
+  transform: rotate(-5deg);
+}
+
+/* =========================================================
+   ANIMACIONES DECORATIVAS
+   ========================================================= */
+
+/* Movimiento de las bubble, los reflejos y el emblema
+   --------------------------------------------------------- */
+
+@keyframes aquim-home-float-a {
+  from {
+    transform: translate3d(-7px, 34px, 0) scale(0.97);
+  }
+
+  to {
+    transform: translate3d(12px, -42px, 0) scale(1.04);
+  }
+}
+
+@keyframes aquim-home-float-b {
+  from {
+    transform: translate3d(10px, -31px, 0) scale(1.03);
+  }
+
+  to {
+    transform: translate3d(-13px, 39px, 0) scale(0.96);
+  }
+}
+
+@keyframes aquim-home-light {
+  from {
+    transform: translate(-50%, -50%) scale(0.94);
+    opacity: 0.72;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes aquim-home-orbit {
+  from {
+    transform: rotate(-3deg) scale(0.97);
+  }
+
+  to {
+    transform: rotate(5deg) scale(1.03);
+  }
+}
+
+@keyframes emblem-float {
+  from {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) translateY(-12px);
+  }
+}
+
+/* Preferencias de movimiento
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .aquim-home-bubble,
+  .aquim-home-visual::before,
+  .aquim-home-light,
+  .landing-emblem {
+    animation: none;
+  }
+
+  .aquim-home-cta__icon {
+    transition: none;
+  }
+}
+
+
+/* =========================================================
+   ADAPTACIÓN RESPONSIVE
+   ========================================================= */
+
+/* Ventanas horizontales y alturas reducidas
+   --------------------------------------------------------- */
+
+/* Reduce espacios y tipografías sin abandonar la composición en dos columnas. */
+@media (max-width: 1120px) {
+  .aquim-home-page {
+    --aquim-page-gap: 26px;
+  }
+
+  .aquim-home-card {
+    grid-template-columns: minmax(0, 45%) minmax(0, 55%);
+  }
+
+  .aquim-home-content {
+    padding: 34px 38px 34px 42px;
+  }
+
+  .aquim-home-content h1 {
+    font-size: clamp(2.05rem, 4.25vw, 3rem);
+  }
+
+  .aquim-home-description {
+    font-size: clamp(0.82rem, 1.35vw, 0.95rem);
+  }
+
+  .aquim-home-benefits span {
+    padding-inline: 8px;
+  }
+}
+
+/* Compacta el contenido cuando la anchura es suficiente, pero la altura disponible es limitada. */
+@media (max-height: 760px) {
+  .aquim-home-page {
+    --aquim-page-gap: 24px;
+  }
+
+  .aquim-home-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .aquim-home-description {
+    margin-top: 16px;
+    line-height: 1.48;
+  }
+
+  .aquim-home-benefits {
+    margin-top: 17px;
+  }
+
+  .aquim-home-actions {
+    margin-top: 24px;
+  }
+}
+
+/* Reduce proporcionalmente la portada en móviles y tabletas horizontales. */
+@media (orientation: landscape) and (max-width: 1180px) and (max-height: 700px) {
+  .aquim-home-page {
+    --aquim-page-gap: 16px;
+
+    padding-top: max(var(--aquim-page-gap), env(safe-area-inset-top));
+    padding-right: max(var(--aquim-page-gap), env(safe-area-inset-right));
+    padding-bottom: max(var(--aquim-page-gap), env(safe-area-inset-bottom));
+    padding-left: max(var(--aquim-page-gap), env(safe-area-inset-left));
+  }
+
+  .aquim-home-shell {
+    width: 100%;
+    height: 100%;
+  }
+
+  .aquim-home-card {
+    grid-template-columns: minmax(0, 44%) minmax(0, 56%);
+  }
+
+  .aquim-home-content {
+    padding: 24px 28px 24px 30px;
+  }
+
+  .landing-emblem {
+    width: min(72%, 230px);
+    min-width: 0;
+    padding: 20px 24px 17px;
+    border-radius: 34px;
+  }
+
+  .landing-emblem__logo {
+    width: 170px;
+    height: 170px;
+    margin-bottom: -16px;
+  }
+
+  .landing-emblem__logoText {
+    transform: translateY(-23px);
+  }
+
+  .landing-emblem strong {
+    font-size: clamp(1.65rem, 4vw, 2.45rem);
+  }
+
+  .landing-emblem > span {
+    margin-top: 6px;
+    font-size: 0.68rem;
+    letter-spacing: 0.34em;
+  }
+
+  .aquim-home-light {
+    width: min(68%, 300px);
+  }
+
+  .aquim-home-eyebrow {
+    margin-bottom: 9px;
+    font-size: 0.64rem;
+  }
+
+  .aquim-home-content h1 {
+    max-width: 520px;
+    font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+    line-height: 0.98;
+  }
+
+  .aquim-home-content h1 span {
+    margin-top: 5px;
+  }
+
+  .aquim-home-description {
+    max-width: 500px;
+    margin-top: 13px;
+    font-size: clamp(0.73rem, 1.25vw, 0.88rem);
+    line-height: 1.42;
+  }
+
+  .aquim-home-benefits {
+    gap: 5px;
+    margin-top: 13px;
+  }
+
+  .aquim-home-benefits span {
+    gap: 5px;
+    padding: 5px 8px;
+    font-size: clamp(0.58rem, 0.9vw, 0.69rem);
+  }
+
+  .aquim-home-benefits span::before {
+    width: 6px;
+    height: 6px;
+    flex-basis: 6px;
+  }
+
+  .aquim-home-actions {
+    margin-top: 17px;
+  }
+
+  .aquim-home-cta {
+    width: min(100%, 340px);
+    min-height: 46px;
+    gap: 14px;
+    padding: 6px 8px 6px 20px;
+    font-size: 0.82rem;
+  }
+
+  .aquim-home-cta__icon {
+    width: 33px;
+    height: 33px;
+    flex-basis: 33px;
+    font-size: 1rem;
+  }
+
+  .aquim-home-register {
+    margin-top: 9px;
+    margin-left: 10px;
+    font-size: 0.67rem;
+  }
+
+  .aquim-home-watermark {
+    right: -18px;
+    bottom: -30px;
+    font-size: clamp(5rem, 14vw, 9rem);
+  }
+
+  .aquim-home-bubble--1 {
+    width: clamp(90px, 16vw, 165px);
+  }
+
+  .aquim-home-bubble--2 {
+    width: clamp(68px, 10.5vw, 115px);
+  }
+
+  .aquim-home-bubble--3 {
+    width: clamp(82px, 14vw, 145px);
+  }
+
+  .aquim-home-bubble--4 {
+    width: clamp(96px, 17vw, 170px);
+  }
+
+  .aquim-home-bubble--5 {
+    width: clamp(76px, 13vw, 135px);
+  }
+
+  .aquim-home-bubble--6 {
+    width: clamp(48px, 7vw, 78px);
+  }
+}
+
+/* Compacta la portada para dispositivos girados con poco espacio vertical. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .aquim-home-page {
+    --aquim-page-gap: 10px;
+  }
+
+  .aquim-home-card {
+    grid-template-columns: minmax(0, 43%) minmax(0, 57%);
+  }
+
+  .aquim-home-content {
+    padding: 14px 19px 14px 21px;
+  }
+
+  .landing-emblem {
+    width: min(70%, 190px);
+    padding: 13px 17px 11px;
+    border-radius: 28px;
+    box-shadow:
+      0 13px 26px rgba(23, 96, 49, 0.17),
+      inset 0 2px 7px rgba(255, 255, 255, 0.86);
+  }
+
+  .landing-emblem__logo {
+    width: 132px;
+    height: 132px;
+    margin-bottom: -12px;
+  }
+
+  .landing-emblem__logoText {
+    transform: translateY(-17px);
+  }
+
+  .landing-emblem strong {
+    font-size: clamp(1.35rem, 3.6vw, 1.9rem);
+  }
+
+  .landing-emblem > span {
+    margin-top: 4px;
+    font-size: 0.54rem;
+    letter-spacing: 0.29em;
+  }
+
+  .aquim-home-light {
+    width: min(64%, 235px);
+  }
+
+  .aquim-home-eyebrow {
+    margin-bottom: 6px;
+    font-size: clamp(0.49rem, 0.9vw, 0.6rem);
+    letter-spacing: 0.14em;
+  }
+
+  .aquim-home-content h1 {
+    max-width: 460px;
+    font-size: clamp(1.48rem, 3.8vw, 2.18rem);
+    line-height: 0.97;
+    letter-spacing: -0.05em;
+  }
+
+  .aquim-home-content h1 span {
+    margin-top: 3px;
+  }
+
+  .aquim-home-description {
+    max-width: 460px;
+    margin-top: 8px;
+    font-size: clamp(0.62rem, 1.15vw, 0.76rem);
+    line-height: 1.34;
+  }
+
+  .aquim-home-benefits {
+    gap: 4px;
+    margin-top: 9px;
+  }
+
+  .aquim-home-benefits span {
+    gap: 4px;
+    padding: 4px 6px;
+    font-size: clamp(0.50rem, 0.82vw, 0.61rem);
+  }
+
+  .aquim-home-benefits span::before {
+    width: 5px;
+    height: 5px;
+    flex-basis: 5px;
+  }
+
+  .aquim-home-actions {
+    margin-top: 11px;
+  }
+
+  .aquim-home-cta {
+    width: min(100%, 300px);
+    min-height: 38px;
+    gap: 10px;
+    padding: 4px 6px 4px 16px;
+    border-radius: 24px;
+    font-size: clamp(0.65rem, 1.05vw, 0.76rem);
+  }
+
+  .aquim-home-cta__icon {
+    width: 29px;
+    height: 29px;
+    flex-basis: 29px;
+    font-size: 0.9rem;
+  }
+
+  .aquim-home-register {
+    margin-top: 6px;
+    margin-left: 7px;
+    font-size: clamp(0.53rem, 0.85vw, 0.62rem);
+  }
+
+  .aquim-home-watermark {
+    right: -12px;
+    bottom: -22px;
+    font-size: clamp(4rem, 13vw, 7rem);
+  }
+
+  .aquim-home-bubble {
+    box-shadow:
+      inset 7px 8px 15px rgba(255, 255, 255, 0.42),
+      inset -8px -9px 15px rgba(68, 169, 210, 0.11),
+      0 10px 18px rgba(32, 111, 137, 0.13),
+      0 0 14px rgba(255, 255, 255, 0.30);
+  }
+
+  .aquim-home-bubble--1 {
+    width: clamp(72px, 14vw, 125px);
+  }
+
+  .aquim-home-bubble--2 {
+    width: clamp(52px, 9vw, 84px);
+  }
+
+  .aquim-home-bubble--3 {
+    width: clamp(65px, 12vw, 108px);
+  }
+
+  .aquim-home-bubble--4 {
+    width: clamp(78px, 15vw, 132px);
+  }
+
+  .aquim-home-bubble--5 {
+    width: clamp(60px, 11vw, 100px);
+  }
+
+  .aquim-home-bubble--6 {
+    width: clamp(38px, 6vw, 58px);
+  }
+}
+
+/* Ajusta textos, botones y bubble para alturas próximas a 360–410 píxeles. */
+@media (orientation: landscape) and (max-height: 410px) {
+  .aquim-home-page {
+    --aquim-page-gap: 7px;
+  }
+
+  .aquim-home-card {
+    grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  }
+
+  .aquim-home-content {
+    padding: 10px 14px 10px 16px;
+  }
+
+  .landing-emblem {
+    width: min(68%, 160px);
+    padding: 9px 13px 8px;
+    border-radius: 23px;
+  }
+
+  .landing-emblem__logo {
+    width: 108px;
+    height: 108px;
+    margin-bottom: -10px;
+  }
+
+  .landing-emblem__logoText {
+    transform: translateY(-14px);
+  }
+
+  .landing-emblem strong {
+    font-size: clamp(1.08rem, 3.3vw, 1.55rem);
+  }
+
+  .landing-emblem > span {
+    margin-top: 3px;
+    font-size: 0.46rem;
+    letter-spacing: 0.25em;
+  }
+
+  .aquim-home-light {
+    width: min(62%, 190px);
+  }
+
+  .aquim-home-eyebrow {
+    margin-bottom: 4px;
+    font-size: clamp(0.43rem, 0.82vw, 0.52rem);
+    letter-spacing: 0.12em;
+  }
+
+  .aquim-home-content h1 {
+    font-size: clamp(1.25rem, 3.55vw, 1.82rem);
+    line-height: 0.96;
+  }
+
+  .aquim-home-content h1 span {
+    margin-top: 2px;
+  }
+
+  .aquim-home-description {
+    margin-top: 6px;
+    font-size: clamp(0.55rem, 1.05vw, 0.67rem);
+    line-height: 1.28;
+  }
+
+  .aquim-home-benefits {
+    gap: 3px;
+    margin-top: 7px;
+  }
+
+  .aquim-home-benefits span {
+    gap: 3px;
+    padding: 3px 5px;
+    font-size: clamp(0.45rem, 0.75vw, 0.54rem);
+  }
+
+  .aquim-home-benefits span::before {
+    width: 4px;
+    height: 4px;
+    flex-basis: 4px;
+  }
+
+  .aquim-home-actions {
+    margin-top: 8px;
+  }
+
+  .aquim-home-cta {
+    width: min(100%, 270px);
+    min-height: 34px;
+    gap: 8px;
+    padding: 3px 5px 3px 13px;
+    border-radius: 21px;
+    font-size: clamp(0.58rem, 0.96vw, 0.68rem);
+  }
+
+  .aquim-home-cta__icon {
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+    font-size: 0.8rem;
+  }
+
+  .aquim-home-register {
+    margin-top: 4px;
+    margin-left: 5px;
+    font-size: clamp(0.47rem, 0.78vw, 0.56rem);
+  }
+
+  .aquim-home-watermark {
+    right: -9px;
+    bottom: -16px;
+    font-size: clamp(3.4rem, 12vw, 5.7rem);
+  }
+
+  .aquim-home-bubble--1 {
+    width: clamp(58px, 13vw, 105px);
+  }
+
+  .aquim-home-bubble--2 {
+    width: clamp(42px, 8.5vw, 70px);
+  }
+
+  .aquim-home-bubble--3 {
+    width: clamp(52px, 11vw, 88px);
+  }
+
+  .aquim-home-bubble--4 {
+    width: clamp(64px, 14vw, 112px);
+  }
+
+  .aquim-home-bubble--5 {
+    width: clamp(48px, 10vw, 82px);
+  }
+
+  .aquim-home-bubble--6 {
+    width: clamp(30px, 5.5vw, 48px);
+  }
+}
+
+/* Aplica la compactación máxima sin abandonar la distribución en dos columnas. */
+@media (orientation: landscape) and (max-height: 350px) {
+  .aquim-home-page {
+    --aquim-page-gap: 5px;
+  }
+
+  .aquim-home-card {
+    grid-template-columns: minmax(0, 41%) minmax(0, 59%);
+  }
+
+  .aquim-home-content {
+    padding: 7px 10px 7px 12px;
+  }
+
+  .landing-emblem {
+    width: min(66%, 135px);
+    padding: 7px 10px 6px;
+    border-radius: 19px;
+  }
+
+  .landing-emblem__logo {
+    width: 88px;
+    height: 88px;
+    margin-bottom: -8px;
+  }
+
+  .landing-emblem__logoText {
+    transform: translateY(-11px);
+  }
+
+  .landing-emblem strong {
+    font-size: clamp(0.92rem, 3vw, 1.28rem);
+  }
+
+  .landing-emblem > span {
+    margin-top: 2px;
+    font-size: 0.39rem;
+    letter-spacing: 0.2em;
+  }
+
+  .aquim-home-visual::before {
+    inset: 7% 9%;
+  }
+
+  .aquim-home-light {
+    width: min(60%, 155px);
+  }
+
+  .aquim-home-eyebrow {
+    margin-bottom: 3px;
+    font-size: clamp(0.38rem, 0.75vw, 0.46rem);
+    letter-spacing: 0.10em;
+  }
+
+  .aquim-home-content h1 {
+    font-size: clamp(1.08rem, 3.35vw, 1.52rem);
+    line-height: 0.95;
+  }
+
+  .aquim-home-description {
+    margin-top: 5px;
+    font-size: clamp(0.49rem, 0.96vw, 0.59rem);
+    line-height: 1.23;
+  }
+
+  .aquim-home-benefits {
+    gap: 2px;
+    margin-top: 5px;
+  }
+
+  .aquim-home-benefits span {
+    gap: 2px;
+    padding: 2px 4px;
+    font-size: clamp(0.39rem, 0.69vw, 0.47rem);
+  }
+
+  .aquim-home-benefits span::before {
+    width: 3px;
+    height: 3px;
+    flex-basis: 3px;
+  }
+
+  .aquim-home-actions {
+    margin-top: 6px;
+  }
+
+  .aquim-home-cta {
+    width: min(100%, 240px);
+    min-height: 30px;
+    gap: 6px;
+    padding: 2px 4px 2px 11px;
+    border-radius: 18px;
+    font-size: clamp(0.50rem, 0.88vw, 0.60rem);
+  }
+
+  .aquim-home-cta__icon {
+    width: 23px;
+    height: 23px;
+    flex-basis: 23px;
+    font-size: 0.72rem;
+  }
+
+  .aquim-home-register {
+    margin-top: 3px;
+    margin-left: 4px;
+    font-size: clamp(0.41rem, 0.70vw, 0.49rem);
+  }
+
+  .aquim-home-watermark {
+    right: -7px;
+    bottom: -12px;
+    font-size: clamp(2.8rem, 11vw, 4.7rem);
+  }
+
+  .aquim-home-bubble--1 {
+    width: clamp(48px, 12vw, 86px);
+  }
+
+  .aquim-home-bubble--2 {
+    width: clamp(34px, 8vw, 58px);
+  }
+
+  .aquim-home-bubble--3 {
+    width: clamp(44px, 10vw, 72px);
+  }
+
+  .aquim-home-bubble--4 {
+    width: clamp(52px, 13vw, 90px);
+  }
+
+  .aquim-home-bubble--5 {
+    width: clamp(40px, 9vw, 68px);
+  }
+
+  .aquim-home-bubble--6 {
+    width: clamp(25px, 5vw, 40px);
+  }
+}
+
+/* Refuerzo para pantallas horizontales especialmente estrechas, evitando recortes en el contenido derecho. */
+@media (orientation: landscape) and (max-width: 620px) and (max-height: 420px) {
+  .aquim-home-card {
+    grid-template-columns: minmax(0, 39%) minmax(0, 61%);
+  }
+
+  .aquim-home-content {
+    padding-left: 10px;
+    padding-right: 8px;
+  }
+
+  .aquim-home-content h1 {
+    font-size: clamp(1rem, 3.45vw, 1.34rem);
+  }
+
+  .aquim-home-description {
+    font-size: clamp(0.46rem, 0.93vw, 0.55rem);
+  }
+
+  .aquim-home-benefits span {
+    padding-inline: 3px;
+    font-size: clamp(0.36rem, 0.66vw, 0.44rem);
+  }
+
+  .aquim-home-cta {
+    width: min(100%, 220px);
+  }
+}
+
+/* Móvil en vertical
+   --------------------------------------------------------- */
+
+/* Apila la zona visual sobre el contenido y habilita el desplazamiento vertical. */
+@media (orientation: portrait) and (max-width: 760px) {
+  .aquim-home-page {
+    --aquim-page-gap: 10px;
+
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    padding-top: max(var(--aquim-page-gap), env(safe-area-inset-top));
+    padding-right: max(var(--aquim-page-gap), env(safe-area-inset-right));
+    padding-bottom: max(var(--aquim-page-gap), env(safe-area-inset-bottom));
+    padding-left: max(var(--aquim-page-gap), env(safe-area-inset-left));
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .aquim-home-shell {
+    width: 100%;
+    height: max(640px, calc(100dvh - (var(--aquim-page-gap) * 2)));
+    min-height: 0;
+  }
+
+  .aquim-home-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    height: 100%;
+    min-height: 0;
+  }
+
+  .aquim-home-visual {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+  }
+
+  .aquim-home-visual::before {
+    inset: 8% 10%;
+  }
+
+  .landing-emblem {
+    width: min(70%, 220px);
+    min-width: 0;
+    padding: 15px 18px 10px;
+    border-radius: 28px;
+  }
+
+  .landing-emblem__logo {
+    width: 125px;
+    height: 125px;
+    margin-bottom: -12px;
+  }
+
+  .landing-emblem__logoText {
+    width: 168px;
+    height: 48px;
+    transform: translateY(-14px);
+  }
+
+  .aquim-home-light {
+    width: min(68%, 245px);
+  }
+
+  .aquim-home-content {
+    justify-content: center;
+    padding: 26px 20px 28px;
+    overflow: visible;
+    text-align: center;
+  }
+
+  .aquim-home-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.64rem;
+    letter-spacing: 0.15em;
+  }
+
+  .aquim-home-content h1 {
+    max-width: 100%;
+    font-size: clamp(1.8rem, 9vw, 2.35rem);
+    line-height: 1.02;
+    text-align: center;
+  }
+
+  .aquim-home-content h1 span {
+    margin-top: 5px;
+  }
+
+  .aquim-home-description {
+    max-width: 34rem;
+    margin: 16px auto 0;
+    font-size: clamp(0.8rem, 3.8vw, 0.92rem);
+    line-height: 1.5;
+  }
+
+  .aquim-home-benefits {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .aquim-home-benefits span {
+    gap: 5px;
+    padding: 6px 9px;
+    font-size: 0.68rem;
+  }
+
+  .aquim-home-actions {
+    display: grid;
+    justify-items: center;
+    margin-top: 20px;
+  }
+
+  .aquim-home-cta {
+    width: min(100%, 330px);
+    min-height: 48px;
+    padding: 6px 8px 6px 20px;
+    font-size: 0.82rem;
+  }
+
+  .aquim-home-cta__icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+    font-size: 1rem;
+  }
+
+  .aquim-home-register {
+    margin: 12px 0 0;
+    font-size: 0.72rem;
+    text-align: center;
+  }
+
+  .aquim-home-watermark {
+    right: -10px;
+    bottom: -20px;
+    font-size: 6rem;
+  }
+
+  .aquim-home-bubble--1 {
+    width: clamp(74px, 24vw, 105px);
+  }
+
+  .aquim-home-bubble--2 {
+    width: clamp(52px, 17vw, 76px);
+  }
+
+  .aquim-home-bubble--3 {
+    width: clamp(64px, 21vw, 92px);
+  }
+
+  .aquim-home-bubble--4 {
+    width: clamp(80px, 26vw, 112px);
+  }
+
+  .aquim-home-bubble--5 {
+    width: clamp(58px, 19vw, 84px);
+  }
+
+  .aquim-home-bubble--6 {
+    width: clamp(34px, 11vw, 48px);
+  }
+}
+
+/* Reduce ligeramente la portada en dispositivos de anchura muy limitada. */
+@media (orientation: portrait) and (max-width: 380px) {
+  .aquim-home-card {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .aquim-home-visual {
+    min-height: 0;
+  }
+
+  .landing-emblem {
+    width: min(74%, 190px);
+    padding: 12px 15px 8px;
+    border-radius: 24px;
+  }
+
+  .landing-emblem__logo {
+    width: 112px;
+    height: 112px;
+    margin-bottom: -10px;
+  }
+
+  .landing-emblem__logoText {
+    width: 150px;
+    height: 42px;
+    transform: translateY(-12px);
+  }
+
+  .aquim-home-content {
+    padding: 22px 16px 24px;
+  }
+
+  .aquim-home-content h1 {
+    font-size: clamp(1.58rem, 8.4vw, 1.9rem);
+  }
+
+  .aquim-home-description {
+    font-size: 0.78rem;
+  }
+
+  .aquim-home-benefits span {
+    padding: 5px 7px;
+    font-size: 0.62rem;
+  }
+}

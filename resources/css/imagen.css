@@ -1,0 +1,1418 @@
+/* =========================================================
+   AQUIM · VISTA INDIVIDUAL DE PUBLICACIÓN
+   Estilos específicos de la fotografía, comentarios, acciones
+   y visor de imagen completa.
+   ========================================================= */
+
+/* =========================================================
+   PUBLICACIÓN INDIVIDUAL
+   ========================================================= */
+
+/* Avatar específico de la vista
+   --------------------------------------------------------- */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, .85);
+  background: radial-gradient(circle at 28% 22%, rgba(255, 255, 255, .95) 0 7%, transparent 23%), linear-gradient(135deg, #f7fff0, #6ac61c 55%, #baf878);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, .86), 0 4px 10px rgba(32, 94, 10, .16);
+  font-size: 20px;
+}
+
+/* Distribución principal
+   --------------------------------------------------------- */
+.single-post-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 100%;
+
+  height: 85vh;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, auto) 1fr;
+
+  --sidebar-header-height: 72px;
+  align-items: stretch;
+
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+
+  overflow: visible;
+  padding-top: 0.8rem;
+}
+
+/* Columna de la imagen
+   --------------------------------------------------------- */
+.post-image-col {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: center;
+
+  height: 96%;
+  box-sizing: border-box;
+  padding-top: 0;
+
+  background: transparent;
+
+  border-right: none;
+}
+
+/* Limita la fotografía al espacio disponible sin deformarla ni recortarla. */
+.post-image-col img {
+  display: block;
+  width: auto;
+  height: auto;
+
+  min-height: auto;
+  min-width: 60vw;
+
+  max-height: 70vh;
+  max-width: 65vw;
+
+  object-fit: contain;
+  border-radius: 28px 0 0 28px;
+}
+
+/* Panel lateral de comentarios
+   --------------------------------------------------------- */
+.post-sidebar {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 96%;
+  min-height: 0;
+  max-height: none;
+  align-self: center;
+
+  top: 0;
+
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.68),
+      rgba(202, 251, 177, 0.38)
+    );
+
+  backdrop-filter: blur(16px) saturate(135%);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+
+  box-shadow:
+    0 16px 35px rgba(12, 71, 8, 0.14),
+    inset 0 2px 7px rgba(255, 255, 255, 0.92);
+
+  overflow: hidden;
+}
+
+/* Cabecera del autor y menú de opciones
+   --------------------------------------------------------- */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  flex: 0 0 var(--sidebar-header-height);
+  height: var(--sidebar-header-height);
+  min-height: var(--sidebar-header-height);
+  box-sizing: border-box;
+
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--glass-border);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
+}
+
+.sidebar-header .user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sidebar-author-avatar {
+  display: flex;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.sidebar-author-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  line-height: 1.15;
+}
+
+.sidebar-author-name {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar-header strong {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #143f05;
+  font-size: 1.05rem;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .92);
+}
+
+.sidebar-published {
+  display: block;
+  margin-top: 3px;
+  white-space: nowrap;
+  color: #174a05;
+  font-size: 0.95rem;
+}
+
+.sidebar-header .post-date {
+  margin: 0;
+}
+
+.sidebar-header .options {
+  position: relative;
+  top: 0;
+  flex: 0 0 auto;
+  font-size: 25px;
+}
+
+/* El checkbox oculto controla la apertura del menú sin JavaScript adicional. */
+.opciones-container {
+  position: relative;
+  display: inline-block;
+}
+
+.checkbox-oculto {
+  display: none;
+}
+
+.btn-tres-puntos {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 4px 20px;
+  color: #333;
+  border-radius: 50%;
+  transition: background 0.2s;
+  user-select: none;
+}
+.btn-tres-puntos-comentarios {
+  display: inline-block;
+ position: relative;
+    top: -10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 4px 12px;
+  color: #333;
+  border-radius: 50%;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.btn-tres-puntos-comentarios:hover {
+  background-color: #e0f2e9;
+}
+.btn-tres-puntos:hover {
+  background-color: #e0f2e9;
+}
+
+.menu-desplegable {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 150px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    list-style: none;
+    padding: 8px 0;
+    margin: 4px 0 0;
+    z-index: 100;
+
+    overflow: hidden; 
+}
+
+.checkbox-oculto:checked ~ .menu-desplegable {
+  display: block;
+}
+
+.item-menu {
+    width: 100%;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+}
+
+.item-menu:hover {
+  background-color: #f5f5f5;
+}
+
+.item-menu.peligro {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.item-menu.peligro:hover {
+  background-color: #ffeeef;
+}
+
+/* Lista desplazable de comentarios
+   --------------------------------------------------------- */
+.comments-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px 12px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+  min-width: 0;
+
+}
+
+.comment-item {
+  display: flex;
+  gap: 12px;
+  padding: 0 0 3% 0;
+  align-items: flex-start;
+}
+
+.comment-item .avatar {
+  width: 34px;
+  height: 34px;
+  font-size: 16px;
+}
+
+.comment-content {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.comment-content p {
+  margin: 0;
+  color: #174a05;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.comment-content strong {
+  color: #143f05;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.comment-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #558737;
+  font-weight: 600;
+}
+
+.comment-meta span {
+  cursor: pointer;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  margin-top: 10px;
+}
+
+/* El botón puede mostrar un estado de carga mientras se solicitan más comentarios. */
+.btn-ig-more {
+  background: transparent;
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-ig-more svg {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-ig-more:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.btn-ig-more.loading {
+  animation: rotar 1s linear infinite;
+}
+
+@keyframes rotar {
+  100% { transform: rotate(360deg); }
+}
+
+/* Acciones y formulario de comentarios
+   --------------------------------------------------------- */
+.sidebar-footer {
+  border-top: 1px solid var(--glass-border);
+  padding: 16px 20px 24px 20px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+}
+
+.action-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.action-icons-left {
+  display: flex;
+  gap: 12px;
+}
+
+.icon-btn-transparent {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #367a13;
+  transition: transform 0.2s, color 0.2s;
+  padding: 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.icon-btn-transparent:hover {
+  transform: scale(1.1);
+  color: #58a315;
+}
+
+.post-likes {
+  margin: 0 0 4px 0;
+  color: #143f05;
+  font-size: 0.95rem;
+}
+
+.post-date {
+  margin: 0 0 16px 0;
+  color: #558737;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+
+.add-comment-form {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  padding-top: 16px;
+}
+
+.comment-textarea-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* El textarea admite varias líneas sin ensanchar el panel y reserva espacio para su contador. */
+.add-comment-form textarea {
+  display: block;
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+  max-height: 86px;
+  padding: 11px 75px 11px 14px;
+  resize: none;
+  overflow-y: hidden;
+  border: 1px solid rgba(167, 216, 153, 0.9);
+  border-radius: 14px;
+  outline: none;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.62);
+  color: #174a05;
+  font: inherit;
+  line-height: 1.45;
+  box-shadow: inset 0 2px 5px rgba(49, 109, 16, 0.08);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.add-comment-form textarea:focus {
+  border-color: #79df25;
+  box-shadow: inset 0 2px 5px rgba(49, 109, 16, 0.08), 0 0 0 3px rgba(121, 223, 37, 0.2);
+}
+
+.add-comment-form textarea::placeholder {
+  color: #7da16b;
+}
+
+.comment-character-counter {
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+  z-index: 2;
+  padding-left: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #558737;
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.btn-publicar {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 10px 20px;
+}
+
+/* Ajuste previo para pantallas pequeñas
+   --------------------------------------------------------- */
+
+/* Se mantiene en este punto para conservar exactamente la prioridad actual de la cascada frente a las reglas posteriores de la fotografía. */
+@media (max-width: 850px) {
+  .single-post-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .post-image-col {
+    height: auto;
+    padding-top: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .post-image-col img {
+    max-width: 100%;
+    max-height: 60vh;
+  }
+
+  .post-sidebar {
+    height: auto;
+    max-height: none;
+  }
+
+  .comments-list {
+    max-height: 350px;
+  }
+}
+
+/* Ajuste genérico del control de opciones. */
+.options {
+  font-size: small;
+}
+
+/* Contenedor de la fotografía
+   --------------------------------------------------------- */
+.post-image-wrapper {
+  position: relative;
+
+  display: block;
+
+  width: fit-content;
+  height: fit-content;
+
+  max-width: 100%;
+}
+
+.post-image-wrapper img {
+  display: block;
+  width: auto;
+  height: auto;
+
+  min-width: 55vw;
+  max-width: 65vw;
+  max-height: 68vh;
+
+  object-fit: contain;
+  object-position: right center;
+}
+
+/* Botón para ampliar la fotografía y descargar
+   --------------------------------------------------------- */
+.btn-ver-imagen,
+.btn-descargar-imagen {
+    position: absolute;
+
+    top: 14px;
+
+    z-index: 20;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+
+    background: rgba(18, 55, 12, 0.58);
+
+    color: #ffffff;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.35),
+        0 4px 12px rgba(0, 0, 0, 0.22);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-4px) scale(0.92);
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+/* Ojo */
+.btn-ver-imagen {
+    left: 14px;
+}
+
+/* Descarga justo a su lado */
+.btn-descargar-imagen {
+    left: 60px;
+}
+
+#imagen-publicacion:hover .btn-ver-imagen,
+#imagen-publicacion:hover .btn-descargar-imagen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.btn-ver-imagen:focus-visible,
+.btn-descargar-imagen:focus-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.btn-ver-imagen:hover,
+.btn-descargar-imagen:hover {
+    background: rgba(18, 55, 12, 0.8);
+}
+/* En pantallas táctiles permanece visible porque no existe un estado hover fiable. */
+@media (hover: none) {
+
+  .btn-ver-imagen {
+    opacity: 0.85;
+    visibility: visible;
+
+    transform: none;
+  }
+}
+
+/* =========================================================
+   VISOR DE IMAGEN COMPLETA
+   ========================================================= */
+
+/* Estructura y estado del visor
+   --------------------------------------------------------- */
+.visor-imagen {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 28px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+/* :target activa el visor cuando su identificador coincide con el fragmento de la URL. */
+.visor-imagen:target {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+/* El fondo cubre el viewport y permite cerrar el visor al pulsar fuera de la fotografía. */
+.visor-imagen__fondo {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background: rgba(0, 0, 0, 0.91);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* El contenedor centra la fotografía ampliada dentro del viewport. */
+.visor-imagen__contenido {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+/* Conserva las proporciones de la fotografía y la limita al espacio visible del viewport. */
+.visor-imagen__contenido img {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 95vw;
+  max-height: 92vh;
+
+  object-fit: contain;
+
+  border-radius: 6px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6);
+
+  pointer-events: auto;
+}
+
+/* Botón de cierre accesible mediante puntero y teclado. */
+.visor-imagen__cerrar {
+  position: fixed;
+
+  top: 24px;
+  right: 30px;
+
+  z-index: 10001;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.13);
+
+  color: #ffffff;
+
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  pointer-events: auto;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.visor-imagen__cerrar:hover {
+  background: rgba(255, 255, 255, 0.25);
+
+  transform: scale(1.08);
+}
+
+.visor-imagen__cerrar:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Adaptación responsive
+   --------------------------------------------------------- */
+@media (max-width: 850px) {
+
+  .visor-imagen {
+    padding: 16px;
+  }
+
+  .visor-imagen__contenido img {
+    max-width: calc(100vw - 32px);
+    max-height: calc(100dvh - 32px);
+  }
+
+  .visor-imagen__cerrar {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+/* =========================================================
+   ADAPTACIÓN RESPONSIVE DE LA PUBLICACIÓN
+   ========================================================= */
+
+/* Móvil en orientación vertical
+   --------------------------------------------------------- */
+@media (max-width: 850px) and (orientation: portrait) {
+  .single-post-container {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+    align-items: start;
+    padding-top: 1.35rem;
+  }
+
+  .post-image-col {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    padding-top: 0;
+    margin-top: 10px;
+    align-self: start;
+    border: 0;
+  }
+
+  .post-image-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .post-image-col img,
+  .post-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+    border-radius: 28px 28px 0 0;
+    margin: 0;
+  }
+
+  .post-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: min(56dvh, 560px);
+    max-height: none;
+    margin: 0;
+    align-self: start;
+    border-top: 0;
+    border-radius: 0 0 28px 28px;
+    overflow: hidden;
+  }
+
+  .sidebar-header {
+    padding: 12px 16px;
+  }
+
+  .comments-list {
+    flex: 1 1 auto;
+    min-height: min(34dvh, 340px);
+    max-height: none;
+    padding: 14px 14px 14px 16px;
+    gap: 14px;
+    overflow-y: auto;
+  }
+
+  .sidebar-footer {
+    flex: 0 0 auto;
+    margin-top: auto;
+    padding: 14px 16px 16px;
+  }
+
+  .action-icons-left {
+    gap: 10px;
+  }
+
+  .add-comment-form {
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  .add-comment-form textarea {
+    height: 42px;
+    min-height: 42px;
+    max-height: 72px;
+    padding: 10px 68px 10px 12px;
+  }
+
+  .btn-publicar {
+    min-height: 42px;
+    padding: 9px 16px;
+  }
+}
+
+/* Móvil vertical estrecho
+   --------------------------------------------------------- */
+@media (max-width: 520px) and (orientation: portrait) {
+  .single-post-container {
+    padding-top: 1.45rem;
+  }
+
+  .post-image-col {
+    margin-top: 10px;
+  }
+
+  .post-image-col img,
+  .post-image-wrapper img {
+    border-radius: 24px 24px 0 0;
+  }
+
+  .post-sidebar {
+    min-height: min(58dvh, 560px);
+    border-radius: 0 0 24px 24px;
+  }
+
+  .sidebar-header {
+    gap: 10px;
+    padding: 10px 14px;
+  }
+
+  .sidebar-header strong {
+    font-size: 0.98rem;
+  }
+
+  .sidebar-published {
+    font-size: 0.82rem;
+  }
+
+  .comments-list {
+    min-height: min(36dvh, 350px);
+    padding: 12px 12px 12px 14px;
+  }
+
+  .comment-item {
+    gap: 10px;
+  }
+
+  .comment-item .avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .comment-content p {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .sidebar-footer {
+    padding: 12px 14px 14px;
+  }
+
+  .comment-character-counter {
+    right: 16px;
+    bottom: 7px;
+    font-size: 0.68rem;
+  }
+}
+
+/* Móvil en orientación horizontal
+   --------------------------------------------------------- */
+@media (max-width: 850px) and (orientation: landscape) {
+  .single-post-container {
+    --sidebar-header-height: 52px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.95fr);
+    gap: 0;
+    align-items: start;
+    padding-top: 10px;
+  }
+
+  .post-image-col {
+    width: 100%;
+    min-width: 0;
+    height: calc(100dvh - 112px);
+    min-height: 230px;
+    padding-top: 0;
+    margin: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    align-self: start;
+    border: 0;
+  }
+
+  .post-image-wrapper {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .post-image-col img,
+  .post-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: right center;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .post-sidebar {
+    width: 100%;
+    min-width: 0;
+    height: calc(100dvh - 112px);
+    min-height: 230px;
+    max-height: none;
+    margin: 0;
+    align-self: start;
+    border-radius: 0 20px 20px 0;
+    overflow: hidden;
+  }
+
+  .sidebar-header {
+    flex: 0 0 var(--sidebar-header-height);
+    height: var(--sidebar-header-height);
+    min-height: var(--sidebar-header-height);
+    padding: 7px 10px;
+    gap: 8px;
+  }
+
+  .sidebar-header .avatar,
+  .sidebar-author-avatar .avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sidebar-header strong {
+    font-size: 0.84rem;
+  }
+
+  .sidebar-published {
+    margin-top: 1px;
+    font-size: 0.7rem;
+  }
+
+  .btn-tres-puntos {
+    padding: 2px 7px;
+    font-size: 18px;
+  }
+
+  .comments-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    padding: 8px 8px 8px 10px;
+    gap: 8px;
+    overflow-y: auto;
+  }
+
+  .comment-item {
+    gap: 7px;
+    padding-bottom: 3px;
+  }
+
+  .comment-item .avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .comment-content p {
+    font-size: 0.74rem;
+    line-height: 1.25;
+  }
+
+  .comment-meta {
+    gap: 7px;
+    margin-top: 2px;
+    font-size: 0.62rem;
+  }
+
+  .sidebar-footer {
+    flex: 0 0 auto;
+    padding: 8px 10px 9px;
+  }
+
+  .action-icons {
+    margin-bottom: 6px;
+  }
+
+  .action-icons-left {
+    gap: 7px;
+  }
+
+  .add-comment-form {
+    gap: 6px;
+    padding-top: 7px;
+  }
+
+  .add-comment-form textarea {
+    height: 34px;
+    min-height: 34px;
+    max-height: 52px;
+    padding: 7px 58px 7px 9px;
+    font-size: 0.72rem;
+  }
+
+  .comment-character-counter {
+    right: 11px;
+    bottom: 6px;
+    font-size: 0.58rem;
+  }
+
+  .btn-publicar {
+    min-height: 34px;
+    padding: 6px 10px;
+  }
+}
+
+/* En dispositivos horizontales muy bajos se reducen antes la cabecera y el pie para preservar el área de comentarios. */
+@media (max-width: 850px) and (orientation: landscape) and (max-height: 430px) {
+  .single-post-container {
+    padding-top: 6px;
+  }
+
+  .post-image-col,
+  .post-sidebar {
+    height: calc(100dvh - 96px);
+    min-height: 205px;
+  }
+
+  .sidebar-header {
+    --sidebar-header-height: 46px;
+  }
+
+  .sidebar-footer {
+    padding-top: 6px;
+    padding-bottom: 7px;
+  }
+}
+
+/* Respaldo para viewports móviles
+   --------------------------------------------------------- */
+@media (max-width: 850px) and (orientation: portrait),
+(max-device-width: 850px) and (orientation: portrait) {
+  .single-post-container {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0;
+    align-items: start;
+    padding-top: 1.35rem;
+  }
+
+  .post-image-col {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    padding-top: 0;
+    margin-top: 10px;
+    align-self: start;
+    border: 0;
+  }
+
+  .post-image-wrapper {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .post-image-col img,
+  .post-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    margin: 0;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .post-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: min(56dvh, 560px);
+    max-height: none;
+    margin: 0;
+    align-self: start;
+    border-top: 0;
+    border-radius: 0 0 28px 28px;
+    overflow: hidden;
+  }
+
+  .comments-list {
+    flex: 1 1 auto;
+    min-height: min(34dvh, 340px);
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .sidebar-footer {
+    flex: 0 0 auto;
+    margin-top: auto;
+  }
+}
+
+/* Ajuste de la fotografía en horizontal
+   --------------------------------------------------------- */
+@media (max-width: 850px) and (orientation: landscape) {
+  .post-image-col {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .post-image-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .post-image-col img,
+  .post-image-wrapper img {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+    margin: 0;
+  }
+}
+
+/* Ajuste final de escala para impedir que la fotografía invada el panel de comentarios. */
+@media (max-width: 850px) and (orientation: landscape) {
+  .post-image-wrapper {
+    position: relative;
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    min-width: 0;
+    max-width: 100%;
+    max-height: 100%;
+    flex: 0 1 auto;
+  }
+
+  .post-image-wrapper img {
+    display: block;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Tablet en orientación vertical
+   --------------------------------------------------------- */
+@media (max-width: 1100px) and (orientation: portrait) {
+  .single-post-container {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0;
+    align-items: start;
+    padding-top: 1.35rem;
+  }
+
+  .post-image-col {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    padding-top: 0;
+    margin-top: 10px;
+    align-self: start;
+    border: 0;
+  }
+
+  .post-image-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
+    max-height: none;
+  }
+
+  .post-image-col img,
+  .post-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    margin: 0;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .post-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: min(56dvh, 560px);
+    max-height: none;
+    margin: 0;
+    align-self: start;
+    border-top: 0;
+    border-radius: 0 0 28px 28px;
+    overflow: hidden;
+  }
+
+  .comments-list {
+    flex: 1 1 auto;
+    min-height: min(34dvh, 340px);
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .sidebar-footer {
+    flex: 0 0 auto;
+    margin-top: auto;
+  }
+}
+
+
+
+/* =========================================================
+   FOOTER DE LA PÁGINA DE IMAGEN
+   ========================================================= */
+
+.aquim-footer {
+    margin-top: 0;
+    padding: 0 14px;
+}
+
+@media (max-width: 768px) {
+    .aquim-footer {
+        margin: 14px auto 0;
+        padding: 9px 14px 5px;
+    }
+}
+
+/* =========================================================
+   AJUSTES DE ELEMENTOS SIN ESTILOS INLINE
+   ========================================================= */
+.item-menu-bloque {
+  display: block;
+  text-decoration: none;
+}
+
+.login-comment-message {
+  padding-top: 10px;
+  font-size: 0.9em;
+  text-align: center;
+}
