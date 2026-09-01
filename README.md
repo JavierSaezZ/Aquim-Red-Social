@@ -1,11 +1,11 @@
 <h2>⚠️ DISCLAIMER  </h2>
-✦ Este proyecto es de aprendizaje por lo que hay mucho margen de mejora tanto en codigo como en el aprtado visual y funcional.
+✦ Este proyecto es de aprendizaje, por lo que hay mucho margen de mejora, tanto en el código como en el apartado visual y funcional.
 <br>
-✦ Los webp y gifs utilizados para mostrar el funcionamiento de la aplicación han sido optimizados para reducir su tamaño y mejorar el tiempo de carga, por lo que pueden reproducirse ligeramente más despacio que los vídeos originales.
+✦ Los WebP y GIF utilizados para mostrar el funcionamiento de la aplicación han sido optimizados para reducir su tamaño y mejorar el tiempo de carga, por lo que pueden reproducirse ligeramente más despacio que los vídeos originales.
 <br>
-✦ Los numeros de seguidores me gusta y comentarios son aleatorios para no tener que crear demasiadas cuentas.
+✦ Los números de seguidores, «me gusta» y comentarios son aleatorios para no tener que crear demasiadas cuentas.
 <br>
-✦ Todas las imagenes tanto de cada usario como las de perfil estan hechas usando IA 
+✦ Todas las imágenes, tanto las de cada usuario como las de perfil, están creadas utilizando IA.
 
 
 <h1> AQUIM — Red Social de Imágenes Horizontales</h1>
