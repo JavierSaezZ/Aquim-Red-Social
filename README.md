@@ -10,11 +10,19 @@
 
 <h1>AQUIM — Red Social de Imágenes Horizontales</h1>
 
-<p align="center">
-  <img src="./readme-Imagenes/AquimLogoCompleto.png"
-       alt="Logo de AQUIM"
-       width="430">
-</p>
+<div align="center">
+  <div>
+    <img src="./readme-Imagenes/AquimLogo.webp"
+         alt="Símbolo de AQUIM"
+         width="230">
+  </div>
+
+  <div style="margin-top: -40px;">
+    <img src="./readme-Imagenes/AquimLogoPalabra.png"
+         alt="AQUIM"
+         width="380">
+  </div>
+</div>
 
 <h1> 📌 Descripción </h1>
 AQUIM es una red social donde todo tu mundo creativo se reúne en un mismo ecosistema. Un espacio tranquilo para explorar imágenes horizontales, descubrir nuevas ideas e inspirarte con fotografías de viajes, paisajes, gastronomía, creatividad y momentos cotidianos.
