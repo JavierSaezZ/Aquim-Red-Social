@@ -11,9 +11,12 @@
 <h1>AQUIM — Red Social de Imágenes Horizontales</h1>
 
 <div align="center">
-  <img src="./readme-Imagenes/AquimLogo.webp" alt="Símbolo de AQUIM" width="230">
-  <br>
-<img src="./readme-Imagenes/AquimLogoPalabra.png" alt="AQUIM" width="380" style="display: block; margin: -40px auto 0;">
+  <img src="./readme-Imagenes/AquimLogo.webp"
+       alt="Símbolo de AQUIM"
+       width="230"><br>
+  <img src="./readme-Imagenes/AquimLogoPalabra.png"
+       alt="AQUIM"
+       width="380">
 </div>
 
 <h1> 📌 Descripción </h1>
@@ -99,6 +102,7 @@ El sistema incluye registro, inicio de sesión, recuperación de contraseña, ge
 <h2> 📰 Feed con Publicaciones Horizontales</h2>
 Las imágenes se muestran en formato panorámico para aprovechar mejor el espacio disponible y mantener la fotografía como protagonista. Cada publicación puede incluir una descripción, su autor y la información de interacción de la comunidad.
  <br>
+ ㅤ
 <img src="./readme-Imagenes/Feed.webp" alt="Feed de publicaciones horizontales de AQUIM" width="100%">
 
  <br>
