@@ -8,11 +8,12 @@
 ✦ Todas las imágenes, tanto las de cada usuario como las de perfil, están creadas utilizando IA.
 
 
-<h1> AQUIM — Red Social de Imágenes Horizontales</h1>
+<h1>AQUIM — Red Social de Imágenes Horizontales</h1>
 
 <div align="center">
   <img src="./readme-Imagenes/AquimLogo.webp" alt="Símbolo de AQUIM" width="230">
-  <img src="./readme-Imagenes/AquimLogoPalabra.png" alt="AQUIM" width="380" style="display: block; margin: -40px auto 0;">
+  <br>
+  <img src="./readme-Imagenes/AquimLogoPalabra.png" alt="AQUIM" width="380">
 </div>
 
 <h1> 📌 Descripción </h1>
