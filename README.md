@@ -13,7 +13,7 @@
 <div align="center">
   <img src="./readme-Imagenes/AquimLogo.webp" alt="Símbolo de AQUIM" width="230">
   <br>
-  <img src="./readme-Imagenes/AquimLogoPalabra.png" alt="AQUIM" width="380">
+  <img src="./readme-Imagenes/AquimLogoPalabra.png" alt="AQUIM" width="380" style="display: block; margin: -40px auto 0;>
 </div>
 
 <h1> 📌 Descripción </h1>
