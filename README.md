@@ -48,7 +48,7 @@ A continuación, se detalla el funcionamiento principal de AQUIM, desde el descu
 
 Vista principal de la plataforma, donde el usuario puede descubrir publicaciones recientes y recorrer imágenes horizontales en un entorno visual, limpio y relajado.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/InicioFinal.webp" alt="Pantalla de inicio de AQUIM" width="100%">
 
  <br>
@@ -70,7 +70,7 @@ El usuario puede consultar el número total de imágenes publicadas y la calidad
 <h3> ✦ 🕒 Menú y paneles del usuario </h3>
 Estos paneles muestran la actividad reciente de las cuentas seguidas y diferentes estadísticas relacionadas con el perfil del usuario.
  <br>
-ㅤ
+&nbsp;
 <div align="center"><img src="./readme-Imagenes/Menu.png" alt="Barra de navegación principal de AQUIM" width="95.4%"></div>
 <div align="center"><img src="./readme-Imagenes/Menu de navegacion.png" alt="Menú lateral de navegación" width="26.5%" align="top">&nbsp;&nbsp;<img src="./readme-Imagenes/Estadisticas.png" alt="Panel de estadísticas del usuario" width="42.5%" align="top">&nbsp;&nbsp;<img src="./readme-Imagenes/UltimasPublicaciones.png" alt="Panel de actividad reciente" width="24%" align="top"></div>
 
@@ -80,7 +80,7 @@ Estos paneles muestran la actividad reciente de las cuentas seguidas y diferente
 <h2> 🫧 Burbujas</h2>
 Toda la página cuenta con un fondo animado compuesto por 6 burbujas en movimiento suave, aportando un aspecto más dinámico y visual.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/Burbujas.webp" alt="Fondo animado con burbujas" width="100%">
 
  <br>
@@ -90,7 +90,7 @@ Toda la página cuenta con un fondo animado compuesto por 6 burbujas en movimien
 <h2> 🔔 Notificaciones</h2>
 El sistema muestra diferentes notificaciones según la acción realizada, informando al usuario sobre confirmaciones, cambios y errores dentro de la plataforma.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/Notificacion.webp" alt="Sistema de notificaciones de AQUIM" width="70%">
 
  <br>
@@ -99,7 +99,7 @@ El sistema muestra diferentes notificaciones según la acción realizada, inform
 <h2> 🔐 Autenticación y Seguridad</h2>
 El sistema incluye registro, inicio de sesión, recuperación de contraseña, gestión de sesiones y verificación en dos pasos mediante Laravel Jetstream y Fortify.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/InicioDeSesion.webp" alt="Inicio de sesión de AQUIM" width="100%">
 <img src="./readme-Imagenes/RecuperarContraseña.png" alt="Pantalla de recuperación de contraseña" width="65%">
 
@@ -111,7 +111,7 @@ El sistema incluye registro, inicio de sesión, recuperación de contraseña, ge
 <h2> 📰 Feed con Publicaciones Horizontales</h2>
 Las imágenes se muestran en formato panorámico para aprovechar mejor el espacio disponible y mantener la fotografía como protagonista. Cada publicación puede incluir una descripción, su autor y la información de interacción de la comunidad.
  <br>
- ㅤㅤ
+ &nbsp;&nbsp;
 <img src="./readme-Imagenes/Feed.webp" alt="Feed de publicaciones horizontales de AQUIM" width="100%">
 
  <br>
@@ -120,7 +120,7 @@ Las imágenes se muestran en formato panorámico para aprovechar mejor el espaci
 <h2> ⬆️ Subir Imagen**  </h2>
 Desde este modal, el usuario puede seleccionar una imagen, ajustarla al formato horizontal 16:9, añadir una descripción y publicarla directamente en la plataforma.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/SubirImagen.webp" alt="Modal para subir y editar una imagen" width="100%">
 
  <br>
@@ -135,14 +135,14 @@ Cada usuario dispone de un perfil público desde el que puede mostrar sus public
 <h3> ✦ 🗂️ Feed del usuario </h3>
 El perfil muestra todas las publicaciones compartidas por el usuario, permitiendo consultar fácilmente su contenido desde un mismo lugar.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/EspacioDeUsuario.webp" alt="Feed del perfil de usuario" width="100%">
 
 
 <h3> ✦ ✏️ Editar descripción del usuario </h3>
 El usuario puede editar la descripción visible de su perfil para actualizar la información que quiere compartir con el resto de la comunidad.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/EditarDescripcion.webp" alt="Edición de la descripción del perfil" width="100%">
 
  <br>
@@ -150,32 +150,32 @@ El usuario puede editar la descripción visible de su perfil para actualizar la 
 
 <h2> 🖼️ Imagen unitaria</h2>
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/imagenes.png" alt="Vista de una publicación individual de AQUIM" width="100%">
 
 <h3> ✦ 📝 Editar descripción de la imagen </h3>
 El propietario de la imagen puede modificar su descripción en cualquier momento para actualizar o corregir la información de la publicación.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/EditarDescripcionImagen.webp" alt="Edición de la descripción de una publicación" width="100%">
 
 <h3> ✦ 🗑️ Eliminar imagen </h3>
 El propietario puede eliminar definitivamente una de sus imágenes cuando ya no quiera mantenerla publicada en AQUIM.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/EliminarFoto.webp" alt="Eliminación de una imagen publicada" width="100%">
 
 <h3> ✦ 🧹 Eliminar comentarios </h3>
 El usuario puede eliminar sus propios comentarios. Además, si la imagen le pertenece, también puede eliminar los comentarios realizados por otros usuarios en su publicación.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/EliminarComentarios.webp" alt="Eliminación de comentarios de una publicación" width="100%">
 
 
 <h3> ✦ 👁️ Vista en grande y descarga </h3>
 Al pasar el cursor sobre la imagen aparecen dos botones: uno permite abrirla en una vista ampliada para observarla con mayor detalle y el otro permite descargarla en su calidad original.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/BtnVerImagenDescargar.png" alt="Botones para ampliar y descargar una imagen" width="30%">
 
  <br>
@@ -187,20 +187,20 @@ Los usuarios pueden indicar que les gusta una publicación, escribir comentarios
 <h3> ✦ ➕ Seguir al usuario </h3>
 Permite seguir o dejar de seguir otros perfiles para descubrir sus publicaciones y mantenerse al día con su actividad.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/SeguirUsuario.webp" alt="Botón para seguir o dejar de seguir a un usuario" width="100%">
 
  <h3> ✦ 💓 Boton de megusta </h3>
 El usuario podrá dar o quitar “Me gusta” en una publicación tanto en el feed como en la imagen unitaria.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/Like.gif" alt="Botón de Me gusta en una publicación" width="30%">
 
  <br>
  <h3> ✦ 💬 Comentarios </h3>
 Consulta los comentarios de la publicación y participa añadiendo el tuyo.
  <br>
-ㅤ
+&nbsp;
 <img src="./readme-Imagenes/Comentarios.webp" alt="Listado de comentarios de una publicación" width="60%">
 <img src="./readme-Imagenes/Comentar.webp" alt="Formulario para añadir un comentario" width="100%">
 
@@ -210,7 +210,7 @@ Consulta los comentarios de la publicación y participa añadiendo el tuyo.
 <h2> 🔍 Buscador en Tiempo Real</h2>
 El buscador permite localizar perfiles mientras se escribe y acceder rápidamente a otros usuarios sin abandonar la navegación principal de la plataforma.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/Buscador.gif" alt="Buscador de usuarios en tiempo real" width="50%">
 
 
@@ -221,25 +221,25 @@ El buscador permite localizar perfiles mientras se escribe y acceder rápidament
 <h2> 📋 Edicion del usuario</h2>
 Desde esta sección, el usuario puede gestionar las principales opciones de su cuenta: cambiar o eliminar la foto de perfil, modificar el nombre, el nick y el correo electrónico, actualizar la contraseña, administrar la verificación en dos pasos, cerrar las sesiones abiertas en otros dispositivos y eliminar definitivamente su cuenta.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/EditarPerfilGeneral.webp" alt="Opciones generales de edición de la cuenta" width="100%">
 
 <h3> ✦ 🙍🏻 Ediatr foto de perfil y nombre </h3>
 La foto de perfil y el nombre pueden modificarse directamente sin necesidad de introducir la contraseña del usuario.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/EditarPerfilFoto.webp" alt="Edición de la foto de perfil y del nombre" width="100%">
 
 <h3> ✦ 📧 Editar el nick o el email </h3>
 Para cambiar el nick o el correo electrónico, el usuario debe introducir su contraseña actual como medida de seguridad.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/EditarEmailNick.webp" alt="Edición del nick y del correo electrónico" width="100%">
 
 <h3> ✦ 🔠 Avatar automático por inicial </h3>
 Si el usuario no tiene una imagen de perfil, se le asignará automáticamente una imagen con la primera letra de su nombre.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/AvatarLetras.png" alt="Avatares automáticos por inicial" width="70%" align="left">
 <img src="./readme-Imagenes/AvatarLetraUnica.png" alt="Avatar automático con una inicial" width="23%">
 <img src="./readme-Imagenes/AvatarLetrasNombre.png" alt="Avatar automático según el nombre" width="23%">
@@ -252,7 +252,7 @@ Si el usuario no tiene una imagen de perfil, se le asignará automáticamente un
 <h2> 🪧 Manejo de errores de la aplicacion</h2>
 AQUIM muestra distintos mensajes de error cuando una acción no puede completarse, indicando al usuario qué ha ocurrido.
  <br>
- ㅤ
+ &nbsp;
 <img src="./readme-Imagenes/Errores.webp" alt="Mensajes de error de AQUIM" width="100%">
 
  <br>
@@ -261,7 +261,7 @@ AQUIM muestra distintos mensajes de error cuando una acción no puede completars
 <h2> 📱 Diseño Responsive</h2>
 La interfaz se adapta a ordenadores, tabletas y teléfonos móviles. La distribución de las imágenes, los perfiles, los comentarios y los menús cambia según el tamaño y la orientación de la pantalla.
 <p align="center">
-    ㅤ
+    &nbsp;
 <img src="./readme-Imagenes/MobilDashboard.png" alt="Dashboarddesde el movil" width="28%">
 <img src="./readme-Imagenes/MobilUsuario.png" alt="Usuario desde el movil" width="28%">
 <img src="./readme-Imagenes/MobilImagen.png" alt="Imagen desde el movil" width="28%">
